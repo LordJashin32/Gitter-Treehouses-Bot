@@ -1,7 +1,7 @@
 # Gitter-Treehouses-Bot
 Respond to statements (No AI)
 
-## Install
+## Install and Run
 
 ```
 sudo apt install python3 python-pip
