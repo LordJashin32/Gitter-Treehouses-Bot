@@ -5,7 +5,7 @@ Respond to statements (No AI)
 
 ```
 sudo apt install python3 python-pip
-pip install gitterpy
+pip3 install setuptools wheel gitterpy
 git clone https://github.com/LordJashin32/Gitter-Treehouses-Bot
 cd Gitter-Treehouses-Bot
 python3 main.py
