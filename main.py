@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 from gitterpy.client import GitterClient
 import json
@@ -22,14 +22,18 @@ def regex_fix(msg):
         essence = "Thank you for your input. We will take your issue into consideration as we sail the 7 seas! Ahoy!"
     if "I'm on step" in msg:
         essence = "Congratulations for completing a step! Ships ahoy! :)"
+    if "I am looking for an internship position" in msg:
+        essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
     if "I'd like to become a virtual intern" in msg:
+        essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
+    if "my name is" in msg:
         essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
     return essence
 
-gitter_api_token='YOUR-API-TOKEN' # Gitter API token
-gitter_room='YOUR-ROOM/YOUR-SUB-ROOM' # Gitter Room Name
+gitter_api_token='YOUR_API_KEY' # Gitter API token
+gitter_room='YOUR_ROOM_NAME' # Gitter Room Name
 gitter = GitterClient(gitter_api_token)
-
+print("Entering main loop")
 while True:
     try:
         response = gitter.stream.chat_messages(gitter_room)
