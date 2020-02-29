@@ -24,14 +24,15 @@ def regex_fix(msg):
         essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
     return essence
 
-gitter_api_token='GITTER_API_KEY' # Gitter API token
-gitter_room='GITTER_ROOM_NAME' # Gitter Room Name
+gitter_api_token='de7f501f5ff24069d7aa9ff36966e33b4875d596' # Gitter API token
+gitter_room='treehouses/Lobby' # Gitter Room Name
 gitter = GitterClient(gitter_api_token)
 print("Entering main loop")
 while True:
     try:
         response = gitter.stream.chat_messages(gitter_room)
         for stream_messages in response.iter_lines():
+            stream_messages = stream_messages.decode('utf-8')
             if is_json(stream_messages):
                 resp = json.loads(stream_messages)
                 if 'msg' in globals():
