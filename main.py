@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from gitterpy.client import GitterClient
 import json
@@ -13,25 +13,19 @@ def is_json(myjson):
 def regex_fix(msg):
     essence = ""
     if "I'd like to become a virtual intern" in msg:
-        essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
-    if "https://files.gitter.im/treehouses/Lobby/Roqs/Progress.png" in msg:
-        essence = "Fabulous job! We will setup all the neccessary preparations for you immediately!"
+        essence = "please follow the first steps found here:  https://treehouses.io/#!pages/vi/firststeps.md"
     if "review my pull request" in msg:
         essence = "Thank you for your contribution. Our team will review your pull request shortly. Cheers! :D"
     if "review my issue" in msg:
         essence = "Thank you for your input. We will take your issue into consideration as we sail the 7 seas! Ahoy!"
     if "I'm on step" in msg:
-        essence = "Congratulations for completing a step! Ships ahoy! :)"
-    if "I am looking for an internship position" in msg:
-        essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
+        essence = "Congratulations for completing a step! Good job! :)"
     if "I'd like to become a virtual intern" in msg:
-        essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
-    if "my name is" in msg:
         essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
     return essence
 
-gitter_api_token='YOUR_API_KEY' # Gitter API token
-gitter_room='YOUR_ROOM_NAME' # Gitter Room Name
+gitter_api_token='GITTER_API_KEY' # Gitter API token
+gitter_room='GITTER_ROOM_NAME' # Gitter Room Name
 gitter = GitterClient(gitter_api_token)
 print("Entering main loop")
 while True:
