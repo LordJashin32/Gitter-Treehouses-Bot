@@ -13,7 +13,7 @@ def is_json(myjson):
 def regex_fix(msg):
     essence = ""
     if "I'd like to become a virtual intern" in msg:
-        essence = "please follow the first steps found here:  https://treehouses.io/#!pages/vi/firststeps.md"
+        essence = "please follow the first steps found here:  https://open-learning-exchange.github.io/#!pages/vi/vi-first-steps.md"
     if "review my pull request" in msg:
         essence = "Thank you for your contribution. Our team will review your pull request shortly. Cheers! :D"
     if "review my issue" in msg:
@@ -21,11 +21,11 @@ def regex_fix(msg):
     if "I'm on step" in msg:
         essence = "Congratulations for completing a step! Good job! :)"
     if "I'd like to become a virtual intern" in msg:
-        essence = "please follow the first steps found here: https://treehouses.io/#!pages/vi/firststeps.md"
+        essence = "please follow the first steps found here: https://open-learning-exchange.github.io/#!pages/vi/vi-first-steps.md"
     return essence
 
-gitter_api_token='de7f501f5ff24069d7aa9ff36966e33b4875d596' # Gitter API token
-gitter_room='treehouses/Lobby' # Gitter Room Name
+gitter_api_token='YOUR-API-TOKEN' # Gitter API token
+gitter_room='YOUR-ROOM-NAME' # Gitter Room Name
 gitter = GitterClient(gitter_api_token)
 print("Entering main loop")
 while True:
@@ -35,12 +35,6 @@ while True:
             stream_messages = stream_messages.decode('utf-8')
             if is_json(stream_messages):
                 resp = json.loads(stream_messages)
-                if 'msg' in globals():
-                    if resp['text'] == msg:
-                        continue
-                if 'botresp' in globals():
-                    if botresp == msg:
-                        continue
                 msg = resp['text']
                 userid = resp['fromUser']['username']
                 if userid == gitter.auth.get_my_id['name']:
